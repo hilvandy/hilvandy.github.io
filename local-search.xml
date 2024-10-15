@@ -4,56 +4,6 @@
   
   
   <entry>
-    <title>怎么去读书？</title>
-    <link href="/2024/10/04/%E6%80%8E%E4%B9%88%E5%8E%BB%E8%AF%BB%E4%B9%A6%EF%BC%9F/"/>
-    <url>/2024/10/04/%E6%80%8E%E4%B9%88%E5%8E%BB%E8%AF%BB%E4%B9%A6%EF%BC%9F/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>学习的方法</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>学习的方法</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>英语题目</title>
-    <link href="/2024/08/10/challenge/"/>
-    <url>/2024/08/10/challenge/</url>
-    
-    <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>在线答题</title>  <style>    /* 页面整体采用暗黑主题风格 */    body {      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;      background-color: #121212;      color: #ffffff;      margin: 0;      padding: 20px;      text-align: center;    }    .container {      background-color: #000000;      padding: 20px;      border-radius: 8px;      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);      margin-top: 20px;    }    .hidden {      display: none;    }    button {      padding: 10px 15px;      margin: 5px;      border: 2px solid #444444;      border-radius: 5px;      background-color: #333333;      color: #ffffff;      cursor: pointer;      font-size: 16px;      transition: background-color 0.3s;    }    button:hover {      background-color: #505050;    }    input {      padding: 8px;      margin-top: 5px;      border: 1px solid #333333;      border-radius: 4px;      background-color: #222222;      color: #ffffff;      width: 80%;    }    .progress-bar {      background-color: #222222;      width: 100%;      height: 20px;      border-radius: 10px;      margin-top: 10px;      overflow: hidden;    }    .progress {      background-color: #4CAF50;      height: 100%;      border-radius: 10px;      text-align: center;      line-height: 20px;      color: #ffffff;      width: 0%;      transition: width 0.5s ease-in-out;    }    .countdown {      margin-top: 10px;      font-size: 18px;      color: #ffa726;    }  </style></head><body>  <div class="container">    <div id="start-container">      <button id="start-button">开始答题</button>    </div>    <div id="question-container" class="hidden">      <!-- 动态生成题目 -->      <!-- 题目1 -->      <div id="question1" class="question">        <div class="question-text">题目 1: 这是第一道样例题目。</div>        <input type="text" id="answer-input1" placeholder="输入你的答案">        <button id="submit-button1" class="submit-button">提交答案</button>      </div>      <!-- 题目2 -->      <div id="question2" class="question hidden">        <div class="question-text">题目 2: 这是第二道样例题目。</div>        <input type="text" id="answer-input2" placeholder="输入你的答案">        <button id="submit-button2" class="submit-button">提交答案</button>      </div>      <!-- 题目3 -->      <div id="question3" class="question hidden">        <div class="question-text">题目 3: 这是第三道样例题目。</div>        <input type="text" id="answer-input3" placeholder="输入你的答案">        <button id="submit-button3" class="submit-button">提交答案</button>      </div>      <!-- 进度条 -->      <div class="progress-bar" id="progress-bar">        <div class="progress" id="progress">0%</div>      </div>      <div class="countdown" id="countdown">30</div>    </div>  </div>  <script>    document.addEventListener('DOMContentLoaded', function() {      var startButton = document.getElementById('start-button');      var questionContainer = document.getElementById('question-container');      var questions = [        { id: 'question1', inputId: 'answer-input1', submitButtonId: 'submit-button1', correctAnswer: '样例答案1', element: null },        { id: 'question2', inputId: 'answer-input2', submitButtonId: 'submit-button2', correctAnswer: '样例答案2', element: null },        { id: 'question3', inputId: 'answer-input3', submitButtonId: 'submit-button3', correctAnswer: '样例答案3', element: null }      ];      var currentQuestionIndex = 0;      var timeLeft = 30;      var timer = null;      // 初始化题目元素      questions.forEach(function(question, index) {        question.element = document.getElementById(question.id);      });      function showQuestion(index) {        // 隐藏所有题目        questionContainer.querySelectorAll('.question').forEach(function(q) {          q.classList.add('hidden');        });        // 显示当前题目        questions[index].element.classList.remove('hidden');        resetTimer();        startTimer();      }      function resetTimer() {        clearInterval(timer);        timeLeft = 30; // 重置时间        document.getElementById('countdown').textContent = timeLeft + '秒';      }      function startTimer() {        timer = setInterval(function() {          timeLeft--;          if (timeLeft <= 0) {            clearInterval(timer);            endGame();          } else {            document.getElementById('countdown').textContent = timeLeft + '秒';          }        }, 1000);      }      function endGame() {        alert('时间到，答题结束！');        clearInterval(timer);        questionContainer.classList.add('hidden');      }      function checkAnswer(index) {        var userAnswer = document.getElementById(questions[index].inputId).value.trim();        if (userAnswer === questions[index].correctAnswer) {          alert('回答正确！');          currentQuestionIndex++;          if (currentQuestionIndex < questions.length) {            showQuestion(currentQuestionIndex);          } else {            endGame();          }        } else {          alert('回答错误，正确答案是: ' + questions[index].correctAnswer);          // 可以选择停留在当前题目或者结束游戏          // endGame();        }      }      startButton.addEventListener('click', function() {        startButton.classList.add('hidden');        questionContainer.classList.remove('hidden'); // 显示题目容器        showQuestion(currentQuestionIndex); // 显示第一题      });      questions.forEach(function(question, index) {        document.getElementById(question.submitButtonId).addEventListener('click', function() {          checkAnswer(index);        });      });    });  </script></body></html>]]></content>
-    
-    
-    <categories>
-      
-      <category>题目</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>题目</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>我的世界服务器搭建</title>
     <link href="/2024/07/06/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
     <url>/2024/07/06/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</url>
