@@ -4,13 +4,19 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2025/02/10/hexo/"/>
-    <url>/2025/02/10/hexo/</url>
+    <title>关于我个人搭建网站照片和视频放在哪里的解决办法</title>
+    <link href="/2025/02/10/%E5%85%B3%E4%BA%8E%E6%88%91%E4%B8%AA%E4%BA%BA%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99%E7%85%A7%E7%89%87%E5%92%8C%E8%A7%86%E9%A2%91%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <url>/2025/02/10/%E5%85%B3%E4%BA%8E%E6%88%91%E4%B8%AA%E4%BA%BA%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99%E7%85%A7%E7%89%87%E5%92%8C%E8%A7%86%E9%A2%91%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="个人网站图片与视频存储方案的演进之路"><a href="#个人网站图片与视频存储方案的演进之路" class="headerlink" title="个人网站图片与视频存储方案的演进之路"></a>个人网站图片与视频存储方案的演进之路</h1><h2 id="背景需求"><a href="#背景需求" class="headerlink" title="背景需求"></a>背景需求</h2><p>作为个人站长，我同时运营着<strong>Minecraft游戏服务器</strong>和<strong>个人博客网站</strong>，其中博客需要存储大量高清图片和视频。早期采用阿里云OSS作为图床服务，但随着资源增长逐渐面临两大痛点：</p><ol><li><strong>成本压力</strong><br>OSS按存储容量+流量双重计费，访问量增加时账单飙升明显</li><li><strong>灵活性不足</strong><br>无法深度定制存储策略，与其他服务联动受限</li></ol><h2 id="方案对比"><a href="#方案对比" class="headerlink" title="方案对比"></a>方案对比</h2><table><thead><tr><th>维度</th><th>阿里云OSS</th><th>自建Lsky Pro</th></tr></thead><tbody><tr><td><strong>月均成本</strong></td><td>50-200元（随流量波动）</td><td>服务器已复用 ≈35元</td></tr><tr><td><strong>存储控制</strong></td><td>受限于服务商策略</td><td>完全自主管理</td></tr><tr><td><strong>扩展性</strong></td><td>需付费升级套餐</td><td>自由调整硬盘&#x2F;带宽</td></tr><tr><td><strong>访问速度</strong></td><td>依赖CDN加速（额外成本）</td><td>根据带宽</td></tr><tr><td><strong>功能定制</strong></td><td>仅基础API支持</td><td>插件扩展+二次开发可能</td></tr></tbody></table><h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>最终选择<strong>Lsky Pro（兰空图床）</strong>作为核心解决方案，主要考量：</p><ul><li>🚀 开源免费：MIT协议允许无限扩展</li><li>📦 Docker部署：10分钟快速搭建</li><li>🔗 混合存储：同时支持本地&#x2F;OSS&#x2F;S3等多种存储策略</li><li>📱 响应式管理：手机端亦可便捷操作</li><li>🔐 权限管控：精细化设置访客&#x2F;用户的读写权限</li></ul><h2 id="实施效果"><a href="#实施效果" class="headerlink" title="实施效果"></a>实施效果</h2><ol><li><p><strong>成本优化</strong><br>复用现有游戏服务器资源，存储硬件成本≈45（云服务器一次性投入）</p></li><li><p><strong>性能表现</strong>  </p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-addition">+=====================+=============+===============+</span><br>|       指标          |  阿里云OSS  | 自建Lsky Pro  |<br><span class="hljs-addition">+=====================+=============+===============+</span><br>| 图片加载速度        |   27ms     |   20ms ▼7%     |<br><span class="hljs-addition">+---------------------+-------------+---------------+</span><br>| 视频首帧时间        |   100ms    |   39ms ▼61%    |<br><span class="hljs-addition">+---------------------+-------------+---------------+</span><br>| 资源请求成功率      |   99.2%     |   99.9% ▲0.7% |<br><span class="hljs-addition">+=====================+=============+===============+</span><br></code></pre></td></tr></table></figure></li></ol>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>服务器</tag>
+      
+    </tags>
     
   </entry>
   
