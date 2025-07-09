@@ -4,19 +4,6 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2025/07/09/hello-world/"/>
-    <url>/2025/07/09/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>学习观（先导篇）：当学霸跌落神坛，学渣逆袭成王?</title>
     <link href="/2025/07/09/%E5%AD%A6%E4%B9%A0%E8%A7%82-%E5%85%88%E5%AF%BC%E7%AF%87/"/>
     <url>/2025/07/09/%E5%AD%A6%E4%B9%A0%E8%A7%82-%E5%85%88%E5%AF%BC%E7%AF%87/</url>
@@ -38,6 +25,19 @@
       <tag>思考</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2025/07/08/hello-world/"/>
+    <url>/2025/07/08/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>]]></content>
+    
+    
     
   </entry>
   
